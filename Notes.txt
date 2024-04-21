@@ -1,0 +1,340 @@
+JavaScript
+1. Makes HTML CSS dynamic
+2. Client Side Scripting language
+3. Interpreter based programming Language
+4. Weakly typed language (no need to provide datatypes)
+5. Javascript runtime behaviour
+6. Javascript in purely single threaded, Still we can achieve multitasking using callbacks and asynchronous functions.
+7. <script>
+8. Javascirpt code
+9. </script>
+Inspect tab options:
+1. Element tab in inspect: The behaviour happening at runtime
+2. Console tab: Gives all logs of execution of program
+3. Everything is an object in JS
+4. The functions calls made over the call stack: Execution Context
+5. The heap is for memory management stuff : Execution Context
+6. WebAPI: Browser supported functions for facilitation asynchronous behaviour
+7. setTimeout: An asynchronous function, so it won’t execute on stack, rather a new thread will be created by browser and run this function on that thread. (The browser itself manages the thread)
+8. But the asynchronous function needs to push back to the stack. So browser should be responsible to put the function back, but the browser does not do that. Why? The reason is stack is single thread, so browser put the function in a callback Queue. They will wait until stage stack does not empty. 
+9. Event loop: Monitors the stack and an intermediary between stack and Queue. When the stack gets empty, the event loop put the sting function in Queue into the stack.
+10. Synchronous code execution done first, only after then the asynchronous code will get executed.
+11. Asynchronous function get executed on the basis of availability of stack and not on the timestamp provided in the code.
+12. A long running activity cannot be executed synchronously, because it will take very long and hamper performance. 
+13. thE BROWSER handles the asynchronous functionality.
+14. Event Loop manages the sending of  waiting functions in waiting Queue to empty stack. (Queue works on FIFO)
+15. All browsers costing Javascript runtime by default
+16. Types: Internal Javascript (Written in HTML code itself) written inside the <body> tag. 
+17. External JS: Written in <script> tag, code written in separate file and we need to specify the source
+18. Use them separately not together
+19. Difference between let and var
+20. To declare we have two option: const and let
+21. const: read-only variable i.e. cannot be changed. It can detect the change in reference and not the change in data
+22. Standard rule: Always keep your data in immutable form, to identify the memory changes is difficult that reference changes. Every time data is changes a new object is formed.\
+23. Objects and Arrays are mutable by default.
+24. Var has scoping constraints
+25. All functions are return type function by default (returns undefined, if nothing is returned by a function)
+26. It’s not mandatory to pass all needed parameters as I function definition in function call statement,  the values not provided will be called undefined.
+27. Supports concept of default argument. If values defined in definition, and no value passed while calling, then default value is taken
+<script>
+      // named function
+      // default arguments
+      function test(a, b = 0) {
+        console.log("test function", a, b);
+        // returns undefined by default
+      }
+      const result1 = test();
+      test(1, 2);
+      test(3);
+
+      console.log("not returning", result1);
+      // unnamed function
+      // expression functions
+      // variable = expression
+      const demo = function () {
+        console.log("anonymous function");
+        return 10;
+      };
+      const result2 = demo();
+      console.log("returning a value", result2);
+    </script>
+
+Effective Solution>>>>>>>Working Solution:
+1. “use strict”
+2. Take care of immutability for mutable objects
+3. 
+
+// rest arguments: …
+Three types of Functions:
+1.  Unnamed
+2. Named
+3. Arrow function (=>)   () => {}. Problem that it solves: 
+
+How to access objects: 1. Dot technique 2. Square Bracket Technique (Used to work with Dynamic Properties)
+Classes:
+Inside thee class we don’t write function keyword when defining the function
+No concept oF access modifiers, everything is public.
+
+Literals-destructuring concept for syntactical improvement
+Object literal or property shorthand, if property and value name is same, then we can simply give property and skip the value
+destructuring is for reducing the no.of lines
+
+Spread operator: … 
+Behaves differently in diff situations
+In terms of environment
+It is to create new references(immutable)
+
+Debugger
+
+
+Day 2:
+1. querySelector
+2. UI Blocking/Render Bloking
+3. Single threaded nature of javascript i.e. only one call is made to the call stack
+4. Inner HTML
+5. Dom
+6. Events. Every Event has an Event Handler. Event Object (Event is used whenever we want to perform some activity)
+7. Dom Hunting
+8. preventDefault: To prevent the default behaviour of a function
+9. Event Target, preventDefault
+10. MouseEvents for activities like mouse up and mouse down
+11. keyboardEvents: onkeypress, onkeyup, onkeydown 
+12. Form events: onSubmit, onReset, onBlur, onChange (With onSubmit, always use the preventDefault to prevent the page refresh on submit button clicking)
+13. Add EventListerner: To add an event Dynamically 
+14. RE-RENDERING (The browser does not understand what is changing and whats not) Re rendering is very expensive, so we need to solve this problem.
+15. AJAX: async javascript and XML
+16. async: Promise and callbacks
+17. Callback: Function that’s called by someone else and not me
+18. Anyone who works with a promise must return a promise(in form of a object)
+19. Promise has 3 states: Pending, Fulfilled
+20. Async-await 
+21. fetch: TO fetch API, needs a URL
+22. The network tab in inspect tells how data is loading
+23. Network -> Fetch -> Preview/
+24. Promise chaining: Calling one promise after another
+25. Ajax is for making request using the fetch API
+26. Provisioning of the BOM(Browser Object Model). BOM allows access of browser related facilities. (Under this we have navigation object, history object, location object)
+27. Browser allows to store the data as well (inspect -> application), stringy and parse are costly so use minimalist way
+28. Shims/polyfills: fallback solution for any feature not supported by the browser
+29. 
+
+Day 3:
+1. Modules in Javascript (library). Files that will be included: index.html, main.js, math-lib.js
+2. The javascript code should be packages/bundled. (Js cannot do it itself)
+3. Some solution for code packaging: web pack (It bundles the code into single files) so we will in HTML file give the link to the bundled js file. The frameworks use it internally
+4. webpack is a library so we need a runtime to run it. Node js is a platform that serves as development runtime for web pack and also it gives facility for dependency management
+5. Node Js: Runtime env (the scripts part in package.json does it), Dependency management
+6. package.json: node config file
+7. npm command gives different set of commands to work with
+8. Step 1: open file in terminal Step2: run npm init This creates a package.json file 
+In javascript we don’t have concept of data structures
+Introduction of Type script helps in preventing that problem
+Typescript compiler is known as: tsc
+We need to install the tsc compiler globally
+Typescript file: .ts
+Typescript compiler takes the code and complies the javascript code
+Sudo npm install -g typescript
+Definitely typed: Standard GitHub repo for typescript
+ts —init : tsConfig.json : typescript compiler options
+
+auto rename tag
+error lens
+How to use some json data as types. 
+In command pallete(type > in search bar) and select paste json to type
+Paste the json code
+Assignment: Create an application to display current weather forecast. 
+Use any open current map weather API. (weatherapi.com)
+Display weather forecast based on location
+Directly mention the location or use geolocation API
+Display the current temp, humidity, min temp, max temp
+
+How to run the typescript file: Compile the file, then the js file that gets created out of it, give it as link to the html code, and run that.
+
+Self Learning
+Closures:
+The function inside a function remembers its lexical parent scope and can access values from the parent function scope as well.
+
+Template Literal:
+To make syntax clean
+
+Destructuring: Object Restructuring, Array Restructuring, spread operator(…), functional restructuring
+
+Default Parameters: Allow to give some value static if value is not passed for them.
+
+Terneray Operator
+
+Array methods: (some, find, every, etc)
+
+Important concept of javascript: Functional Programming which is not possible without Higher Order Functions(Ex: map, reduce, filter)(Function that take another function as argument and return a function)
+JavaScript, functional programming is a programming style that encourages using functions as first-class citizens, meaning functions can be assigned to variables, passed as arguments to other functions, and returned from functions. It also promotes the use of pure functions, immutability, and avoiding side effects.
+
+In JavaScript, a callback function is a function that is passed as an argument to another function and is executed after some operation has been completed. Callbacks are a fundamental concept in asynchronous programming, and they are commonly used in scenarios like handling asynchronous operations such as timers, AJAX requests, file I/O, and event handling.
+Ex: Finding Area, and circumference of a circle when radius is provided. We can pass function of caluculting area and circumference seperately as parameter on basic of whatever needs to be calculated.
+
+Array.prototype.function_name=function definition //This will make the function available for all the arrays in our code
+
+Higher Order Functions: map, reduce, filter
+ They take function as input and return function
+
+Optional Chaining: The optional chaining (?.) operator accesses an object's property or calls a function. If the object accessed or function called using this operator is undefined or null, the expression short circuits and evaluates to undefined instead of throwing an error.
+
+Promises and async-await
+These topics yet to be understood properly
+
+setTimeout and Closures
+The setTImeout function creates a closure and remembers the reference of variables(remember only the reference not the value, so the latest value would be accessed by setTimeout, to avoid this we can use let instead of var. let has a block scope, hence ion each iteration a new copy of variable is formed) that are provided in the callback function given to it. And hence after a given time it executes as expected
+After the stipulated the time, the function in setTimeout is put back into the call sTACK and there it executes
+setTimeout Functions takes first parameter as a callback function and second parameter as the time in ms after which that callback function needs to execute.
+
+Oct 31, 2023
+First Class Functions (Akshay Saini)
+Function Statement: It is function declaration, during hoisting phase, memory for function name will be created.
+
+Function Expression: It is when the function is assigned to a variable, during the hoisting/memory creation phase the function memory won’t be created only variable memory will be created. 
+Also note here we create function declaration without giving function any name.
+
+Named Function Expression: When we assign function to a variable and function itself has a name.
+
+Anonymous Functions are used at places where the function needs to used as a value.
+
+First Class Functions: The ability to use the functions as values, and we can pass function as argument while doing smoother function calls and return function from other function. This ability Is called first class functions.
+
+Callback Functions in JS (AS)
+Function passed as parameters to other function is callback function.
+JS is single threaded synchronous language, but with help of callbacks we can perform the asynchronous tasks.
+
+How the callback function is used for asynchronous task: Using setTimeout function.
+We should use async operations for functions that take time, so that the main thread does not get blocked.
+The eventListeners are heavy I.e. consume good amt of memory so they need to be removed when not in use.
+
+Nov 1, 2023
+
+Event Loop and Asynchronous javascript (AS)
+During the execution process of javascript coed, there are two things an Event Queue and a function stack. The functions to be executed get stack in the functional stack and get executed one by one. Event loop is something that brings the content of queue in the functional stack when it finds that the functional stock is empty.
+Event loop helps implementing the multithreading in js although it being a single threaded language.
+
+
+Whenever a javascript program is run:
+A global execution context is created and pushed in the call stack
+To use the capabilities of browser the javascript uses the webAPIs like setTimeout, Dom interactions, console, fetch
+
+ Until we explicitly remove the event handlers they remain in the web API environment or until we close the browser
+Similar to Calback Queue there is a microtask queue, the microtask queue is of higher priority. If there is/are a functions both in MT and CB Queue and the CB stack is empty, then the event loop will take functions from MT queue to the callback stack first and then that of callback queue
+
+Which callback functions come to microtask queue from the webapi environment? 
+All the callback functions that are result of promises come to the MT Queue.
+Also the functions that are result of mutation observer(i.e. changes in the DOM)
+
+Rest callback functions like functions from setTimeout API, dom manipulations console. Etc go to callback queue
+
+Javascript Runtime environment (AS)
+It provides all the things needed for running the javascript code.
+What is present in JSRE:
+JS Engine
+Set of APIs to connect it the outside environment
+Event Loop
+Callback Queue
+Microtask Queue
+
+Every bqowser has this JSRE, due to which we are able to run the javascript on the browser
+What if we want to run the javascript outside the browser: We need node.js for that.
+node.js also provides the JSRE for running the javascript code.
+Google chrome users the JS engine called as v8. Node.js also uses it.
+
+What happens inside the JS Engine:
+Human written Code -> Parsing -> Compilation -> Execution
+
+Concept of Callback:
+When we want that a function B needs to execute after the execution of function A, then we can wrap the function B inside the function A I.e. we can pass function B as callback function in the parameter of function A. SO now it is the responsibility of function A that after it excutes itself, it will execute function B. 
+
+Callback Hell (AS)
+To problems in using the callbacks: callback hell and inversion of control
+When multiple asynchronous tasks are combined, and each task depends on its previous task, the code structure becomes complicated.When multiple asynchronous tasks are combined, and each task depends on its previous task, the code structure becomes complicated.
+Also callback hell makes code really complicated 
+
+ inversion of control: We are passing important functionality that might be quite crucial in some other function and relying on which might be buggy or error prone. We loose the control over our code
+
+Promises (AS):
+ An object that represents eventual completion of an asynchronous operation.
+They are a way to prevent callback hell and inversion of control.
+Instead of passing function as callback function into another function that we wan to execute first, we get. A promise returned from that async function. This promise is an empty object. When the line of function call executes the promise gets an empty object in it. 
+Then after the fucntion(being async) executes, the promise object gets filled. And as soon as the promise object gets filled the next function that had to execute gets execute.
+We pass that function as callback function to the promise.then(()=>{})
+
+Go through main.js file in below folder for better understanding and how is the implementation of the promises
+
+Callback hell can be prevented trough promise chaining
+Promise Chaining: To add multiple promises using .then to a single parent function. 
+Don’t forget to use the return keyword before calling the next function in the callback fucntion statement.
+Ex: 
+createOrder(user)
+.then(function (orderId){
+return placeOrder(orderId)})
+.then()
+.then()
+
+Creating Promises (AS)
+We create promise using a promise Constructor
+Syntax like: 
+const pr = new Promise(function(reject, resolve){})
+
+return pr;
+
+The parameter resolve and reject, are provided by javascript itself for the creation of promises
+The promise either returns success (where it returns the value that function has to return) or some error.
+Promise.then() //handles stuff if the promise got successfully resolved
+.catch() //handles error if the promise got rejected
+We attach callback function  to the .then and .catch.
+
+
+//Remember in case Promise Chaining, whatever you recieve previously needs to be returned so that it can be used in the next chain
+.catch is responsible for catching errors in the .thens that are above it only.
+
+Async Await
+Async is a keyword that is used to make a fucntion asynchronous
+An asynchronous function always returns a promise. And if there is some value to be returned by the function then the async function will wrap the value inside the promise and then return the promise
+Using the .then() we can access the data wrapped inside the promise
+
+Async with await is used to handle the promises.
+
+Await keyword can only be used inside an asyn function. It is written before a promise and the value of promise is stored in some constant
+
+
+Async/Await is just another way of doing the .then and .catch
+
+Udemy Course:  https://gainsight.udemy.com/course/asynchronous-javascript-promises-callbacks-async-await/learn/lecture/12926880#overview
+
+In Javascript if we write synchronous code, it will get executed line by line. No matter how long the current line task is, until it does get completed, the next line’s execution won’t start. 
+So to prevent this much of delay and slowness, we prefer making the code asynchronous in JS. i.e. we explicitly introduce multithreading in JS, although it a single thread language.
+
+Synchronous Actions: We need to wait for current task to get completed, befaire the next task starts.
+Asynchronous Actions: When the next task can be started even if the current task has not completely executed. The asynchronous actions get executed when all other synchronous actions are completed.
+Examples of async actins in JS: Sending HTTP request, setTimeout, Reading writing data to files, sending DB queries.
+
+
+How JS engine executes the code behind the scenes:
+Each browser has its own JS Engine, and each works slightly differently.
+Main idea is same foe all browsers and node js.
+Google chrome JS engine: V8 (also used in node js)
+
+Two main Data structures used for JS code execution by the JS engine: 
+1. Call Stack
+When a function starts executing an Execution Context gets created and is placed over the call stack. (Note: First of all a global execution context is created that gets in the call stack that involves all the declarations in the code)
+When this functions finishes execution and returns then the execution context associated with it gets removed from the call stack.
+
+
+2. Task Queue/Callback Queue: This DS holds the reference to the callback functions that get executed asynchronously.
+When an asynchronous task is encountered by the Engine(Ex: reading from a file), it skips it and continues with creating context of other synchronous tasks. Meanwhile the reading of the file gets finished and this callback function’s reference is placed in the task queue by the engine as a task. But the task in the queue won’t be invoked until the call stack is completely empty.
+So only after the global execution context is removed from the call stack, then the queue tasks are invoked.
+Every time the call stack is empty the JS engine checks if there is any task in the queue waiting to be executed.
+Now if there is a task in the message queue, the engine takes out that task form the queue and creates its execution context in the Call stack so it gets executed.
+
+Point to keep in mind: All the functions declaration happen before the code actually starts to execute in JS. (As part of global execution context - The first things that comes in the call stack when a code starts tp execute.)
+
+Now if we want that a certain function should execute only after the callback has executed, in that case we invoke that function inside the callback function.
+
+
+
+
+ 
+
