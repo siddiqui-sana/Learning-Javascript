@@ -334,7 +334,91 @@ Point to keep in mind: All the functions declaration happen before the code actu
 Now if we want that a certain function should execute only after the callback has executed, in that case we invoke that function inside the callback function.
 
 
-##Lets add more stuff
+## Lets add more stuff ##
+To round a number : Math.round(2.2) Gives 2
+"some" + "things" = "somethings" //Does String Concatination.
+To check the type of of a variable: typeof variable
+'hello' + 3 = 'hello3' //String + number = string (Concatination happens)
+'11' - 1 = 10 //String 
+Escape Character is \ symbol that helps the single quote symbol to just appear as text and not string. Example: 'I\'m Sana'
+\n //Escape character to insert new line.
+Template Strings: Strings written with `` i.e. backticks. These have special features like Interpolation i.e. directly insert values inside the string.
+Ex: `Sana is ${20+5} years old` Gives Output: "Sana is 25 years old"
+Another Special feature for Template String is Multi line string. Where we can add new line to the string by simply keeping the strings in diff line inside backticks.
 
- 
+#HTML CSS JS
+HTML creates static web page.
+CSS adds style
+Js makes the page interactive ie actions can be performed on the page ex: button click etc. 
+
+Ways to insert JS in HTML:
+  To insert the Javascript inside the HTML we use <script> tag. 
+  This script tag is preferrred to be kept outside and after the <body> tag because we want the web page to created first and then become interactive via javascript. This JS script will run when the page is loaded. 
+  Also we can add the js file path in the src attribute of the script tag.
+
+  We can also write JS inside the double quotes of onClick attribute passed to the button tag. This JS will run when that particular tag is interacted on the page i.e. when the button is clicked.
+
+# Variables in JS
+  let keyword helps in creating a new variable.
+  only $ and _ are special chars allowed in variable name.
+  var name cant start with a number. 
+  2 different variables with same cannot exist at the same time.
+
+  3 ways (keywords) to create variables in javascript:
+    1. let //Most preferred
+    2. const // This value cannot be changed/updated.
+    3. var // Has some issues so we dont use it in new JS code. They do not follow the rules of scope properly. same names of var will conflict even if they are in different scopes. 
+
+    Only let varaibles can be declared without being initialized, but for const varialbles, we have to give some value (undefined also valid) while we are creating it. 
+
+# Booleans and if statements
+  == tries to convert the values to same type. So instead we use === to check for equality.
+  5 == "5" Would give True  which is logically wrong. 
+  5 === "5" Would give false
+  Similarly do !== instead of !=
+
+  boolean dont just work with True or false, they also work with truthy (value that look like true) abd falsy (value that look like false)
+  false, 0, '', NaN, undefined, null -> These are the falsy values.
+  Rest all the truthy values. 
+
+  NaN: Not a number. Get when we do some invalid math
+  Ex: "text" / 5 -> NaN
+
+  undefined: Means something does not have a value. Ex: A var that is just declared and not initialized.
+  null: 
+
+
+  # Ternary Operator: ? : 
+    Ternary operator can be saved in a variable. While if else cannot be.
+
+  # Short Circuit Evaluation: If left side of the && operator is false, it will never evaluate the right side. So && operator stops early.
+  This also can be stored in a variable as guard operator.
+
+  const message = 0 && "happy" will give message = 0 //Guards from going to the right side if 1st value is falsy
+  but
+  const message = 5 && "happy" will give message = happy // i.e the right side value. 
+
+  # Default Operator
+    Similar to guard operator that uses || 
+    || Also stos early if the left side value is truthy, so the variable it is assigned to will get the left value. But if the left side is falsy in that case the right side of operator will be evaluated and the varialbe it is assigned to will get the right side value. 
+
+    var res = 1 || "happy" so res = 1
+    var = 0 || "happy" so res = "happy"
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
