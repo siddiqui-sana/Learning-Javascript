@@ -405,6 +405,13 @@ Ways to insert JS in HTML:
     var res = 1 || "happy" so res = 1
     var = 0 || "happy" so res = "happy"
 
+## Functions
+   1. Created using keyword function
+   2. Best Practice: Use CamelCase
+   3. To call the fucntion: func_name();
+   4. 
+
+
     
 
 
